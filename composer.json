@@ -2,6 +2,7 @@
     "name": "plateformweb/datatable",
     "description": "Simplify server side with datatable",
     "type": "library",
+    "license": "MIT",
     "require": {
         "php": ">=8.0"
     },
