@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Plateformweb\Datatables;
+namespace Plateformweb\Datatables\Adapters;
+
+use Plateformweb\Datatables\Adapter;
+use Plateformweb\Datatables\AdapterInterface;
 
 class ArrayAdapter extends Adapter implements AdapterInterface
 {
@@ -11,10 +14,5 @@ class ArrayAdapter extends Adapter implements AdapterInterface
         $this->recordsTotal = count($datas);
         $this->recordsFiltered = count($datas);
         $this->datas = array_slice($datas, $this->start, $this->length);
-    }
-
-    public function getJson(): string
-    {
-        return $this->response();
     }
 }

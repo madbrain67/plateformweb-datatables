@@ -103,16 +103,19 @@ class Adapter
         return $datas;
     }
 
-    protected function response(): string
+    protected function response(): array
     {
-        $response = [
+        return [
             'draw' => $this->draw,
             'recordsTotal' => $this->recordsTotal,
             'recordsFiltered' => $this->recordsFiltered,
             'data' => array_map([$this, 'processDatas'], $this->datas),
         ];
-    
-        $json = json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    }
+
+    protected function jsonResponse(): string
+    {
+        $json = json_encode($this->response(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     
         if ($json === false) {
             return json_encode([
