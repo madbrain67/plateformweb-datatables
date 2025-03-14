@@ -103,7 +103,7 @@ class Adapter
         return $datas;
     }
 
-    protected function response(): array
+    public function response(): array
     {
         return [
             'draw' => $this->draw,
@@ -113,7 +113,7 @@ class Adapter
         ];
     }
 
-    protected function jsonResponse(): string
+    public function jsonResponse(): string
     {
         $json = json_encode($this->response(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     
